@@ -1,0 +1,36 @@
+ body, html {
+    height: 100%;
+    margin: 0;
+    
+    
+    
+}
+
+.full-image {
+    
+    /* The image used */
+    background-image: url("../images/main.jpeg");
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+.intro-text{
+
+  width: 30%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 2s all ease-in-out ;
+}
+
+.intro-appear
+{
+  opacity: 1;
+  transform: translateY(0px);
+}
