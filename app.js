@@ -5,11 +5,13 @@ let animationText = [
 ];
 
 console.log(animationText);
+
 for(let i=0; i < animationText.length; i++)
 {
     document.getElementById('text-id').innerHTML = animationText;   
     
 }
+
 
 // holds complete element!
 const text = document.querySelector('#text-id');
@@ -32,7 +34,9 @@ function onTick()
     const span = text.querySelectorAll('span')[char];
     span.classList.add('fade');
     char++;
+    timer = '';
 
+    clearInterval(timer);
     // if(char == splitText.length){
     //     myStopFunction();
     //     return;
