@@ -1,11 +1,46 @@
-function scrollAppear()
-{
-    var introText = document.querySelector('.intro-text');
-    var introPosition = introText.getBoundingClientRect().top;
-    var screenPosition = window.innerHeight;
+let animationText = [
+    'I am a programmer', 
+    'I Experiment', 
+    'I photo!'
+];
 
-    if(introPosition > screenPosition){
-        introText.classList.add('intro-appear');
-    }
+console.log(animationText);
+for(let i=0; i < animationText.length; i++)
+{
+    document.getElementById('text-id').innerHTML = animationText;   
+    
 }
-window.addEventListener('scroll', scrollAppear);
+
+// holds complete element!
+const text = document.querySelector('#text-id');
+// changes complete element to only text content!
+const strText = text.textContent;
+const splitText = strText.split('');
+
+text.textContent = '';
+for(let i = 0; i < splitText.length; i++)
+{
+    text.innerHTML += '<span>' + splitText[i] + '</span>';
+}
+
+let char = 0;
+
+let timer = setInterval(onTick, 50);
+
+function onTick()
+{
+    const span = text.querySelectorAll('span')[char];
+    span.classList.add('fade');
+    char++;
+
+    // if(char == splitText.length){
+    //     myStopFunction();
+    //     return;
+    // }
+
+}
+
+// function myStopFunction() {
+//     clearInterval(timer);
+//     timer = null;
+// }
