@@ -50,4 +50,5 @@ function onTick()
 function myStopFunction() {
     clearInterval(timer);
     timer = '';
-}    
+}
+    
