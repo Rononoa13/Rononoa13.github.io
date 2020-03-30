@@ -4,7 +4,8 @@ let animationText = [
     'I photo!',
     'I Ball',
     'I read', 
-    'I write'
+    'I write',
+    'I Sleep'
 ];
 
 let item = animationText[Math.floor(Math.random() * animationText.length)]
