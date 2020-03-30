@@ -36,14 +36,13 @@ function onTick()
     span.className += 'fade';
     char++;
     if(char == splitText.length){
-        clearInterval(timer);
-        timer = '';
+        myStopFunction();
 
     }
     
 }
 
-// function myStopFunction() {
-//     clearInterval(timer);
-//     timer = null;
-// }    
+function myStopFunction() {
+    clearInterval(timer);
+    timer = '';
+}    
