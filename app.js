@@ -31,20 +31,19 @@ let timer = setInterval(onTick, 50);
 
 function onTick()
 {
-    const span = text.querySelectorAll('span')[char];
-    span.classList.add('fade');
+    var span = text.querySelectorAll('span')[char];
+    //span.classList.add('fade');
+    span.className += 'fade';
     char++;
-    timer = '';
+    if(char == splitText.length){
+        clearInterval(timer);
+        timer = '';
 
-    clearInterval(timer);
-    // if(char == splitText.length){
-    //     myStopFunction();
-    //     return;
-    // }
-
+    }
+    
 }
 
 // function myStopFunction() {
 //     clearInterval(timer);
 //     timer = null;
-// }
+// }    
