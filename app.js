@@ -35,9 +35,9 @@ function animateText() {
     let timer = setInterval(onTick, 50);
 
     function onTick() {
-        var span = text.querySelectorAll('span')[char];
-        //span.classList.add('fade');
-        span.className += 'fade';
+        let span = text.querySelectorAll('span')[char];
+        span.classList.add('fade');
+        //span.className += 'fade';
         char++;
         if (char == splitText.length) {
             myStopFunction();
