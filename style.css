@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body{
+html, body{
     background-color: black;
 }
 
@@ -40,12 +40,16 @@ span.fade{
     color: hsl(0, 0%, 100%);
     position: absolute;
     top: 55%;
+    transform: translateY(-10%);
     left: 45%;
+    align-items: center;
+    align-content: center;
+    
 
 }
 .media li {
     display: inline-block;
-    text-align: center;
+    /* align-items: center; */
     
 }
 
