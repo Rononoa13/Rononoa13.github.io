@@ -8,7 +8,7 @@
     width: 100%;
     background-image: url(images/Studio_Project.png);
     background-size: cover;
-    position: relative;
+    position: absolute;
     
 }
 
@@ -62,3 +62,8 @@ nav ul li a{
     color: #fff;
     box-shadow: 3px 8px 22px rgba(94, 28, 68, 0.15);
 }
+
+.content #profileImage{    
+        float: right; 
+        margin: 20px;
+        }
