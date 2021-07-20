@@ -3,7 +3,7 @@ fetch("https://api.github.com/users/rononoa13")
   .then(function (data) {
     console.log(data);
 
-    document.getElementById("profileImage").src = data["avatar_url"];
+    // document.getElementById("profileImage").src = data["avatar_url"];
 
 // shows paragraph after click of anchor tag`with id myProject`
     let project = document.getElementById('showProject')
