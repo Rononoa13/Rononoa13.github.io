@@ -2,10 +2,11 @@ let animationText = [
     "I love Python 👨‍💻",
     "I play BasketBall 🏀 ⛹️‍♂️",
     "I like photography 📷",
+    "I drum my heart out 🎶 🥁",
     "I love to Code 🤖",
     "I read books 📚",
     "I am from Nepal 🇳🇵",
-    "I am a Data Engineer 📊",
+    "I am a Software Engineer 🧑🏽‍💻",
     "I love Flask 👨‍💻",
     "I love to swim 🏊‍♂️",
     "I love to travel 🧳 🗺️",
@@ -15,74 +16,41 @@ let animationText = [
     "I love to cook 🍳",
     "I love linux 💻"
 ];
-// let animationText = [
-//     "I love Python",
-//     "I play BasketBall",
-//     "I like photography",
-//     "I love to Code",
-//     "I read books",
-//     "I am from Nepal"
-// ];
 
 function selectFromList() {
-    return animationText[Math.floor(Math.random() * animationText.length)];
+  return animationText[Math.floor(Math.random() * animationText.length)];
 }
-
-function main() {
-    setInterval(() => animateText(), 3000);
-}
-
-// item = selectFromList()
-document.getElementById("text-id").innerHTML = "Hello, World 🌎" ;
 
 function animateText() {
+  const textElement = document.getElementById("text-id");
+  const item = selectFromList();
 
-    item = selectFromList()
-    // 
-    for (let i = 0; i < animationText.length; i++) {
-        document.getElementById("text-id").innerHTML = item;
+  textElement.textContent = ""; // clear previous text
+  const splitText = Array.from(item); // handles emojis correctly
+
+  splitText.forEach(char => {
+    const span = document.createElement("span");
+    span.textContent = char === " " ? "\u00A0" : char; // preserve spaces
+    span.style.opacity = "0";
+    span.style.transition = "opacity 0.3s ease, color 0.3s ease";
+    textElement.appendChild(span);
+  });
+
+  let char = 0;
+  const spans = textElement.getElementsByTagName("span");
+  const interval = 150; // time per letter in ms
+
+  const timer = setInterval(() => {
+    if (char < spans.length) {
+      spans[char].style.opacity = "1";
+      char++;
+    } else {
+      clearInterval(timer);
+      // After the last letter fades in, wait 2s then start next animation
+      setTimeout(animateText, 2000);
     }
-
-    // holds complete element!
-    const text = document.querySelector("#text-id");
-    console.log(text)
-    // changes complete element to only text content!
-    const strText = text.textContent;
-    console.log(strText)
-    const splitText = strText.split("");
-    console.log(splitText)
-
-    text.textContent = "";
-    for (let i = 0; i < splitText.length; i++) {
-        text.innerHTML += "<span>" + splitText[i] + "</span>";
-        // console.log(text);
-    }
-    console.log(text.innerHTML);
-
-    let char = 0
-
-    let timer = setInterval(onTick, 80);
-
-    function onTick() {
-        let span = text.getElementsByTagName("span")[char];
-        span.classList.add("fade");
-        // span.className += "fade";
-        // when function returns "undefined, do nothing."
-        if (span.classList.add("fade") == undefined) {
-            //pass
-        }
-        ++char;
-        if (char == splitText.length) {
-            myStopFunction();
-        }
-    }
-
-    function myStopFunction() {
-        clearInterval(timer);
-        timer = " ";
-    }
+  }, interval);
 }
-// 
 
-// animateText()
-main()
+// start animation
+animateText();
