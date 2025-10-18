@@ -7,6 +7,7 @@
 
 html, body{
     background-color: black;
+    color: whitesmoke;
 }
  
 
@@ -24,10 +25,21 @@ h1{
     line-height: 100vh; */
 }
 
-span{
-    /* opacity: 0; */
-    transition: all 5s ease;
-    /* display: inline; */
+#text-id {
+  /* white-space: normal;      allow wrapping */
+   word-break: keep-all;    /* don’t break inside words */
+   overflow-wrap: normal;
+  /* overflow-wrap: break-word;allow breaking between words if needed */
+  /* text-align: center; */
+  line-height: 1.4;
+}
+
+#text-id span {
+    opacity: 0;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    display: inline;
+    vertical-align: baseline;
+    /* font-size: 2rem; */
 }
 
 span.fade{
